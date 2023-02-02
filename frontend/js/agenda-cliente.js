@@ -31,19 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class = "col-9">
                         <p class="p-a4"><strong class="a1">${nome}</strong></p> 
                         
-                        <p class="p-a4"><strong class="a1">Cliente: </strong>${prestador}</p>
+                        <p class="p-a4"><strong class="a1">Prestador: </strong>${prestador}</p>
                         <p class="p-a4"><strong class="a1">Dia: </strong>${dia}</p>
                         <p class="p-a4"><strong class="a1">Horário: </strong>${hora}</p>
-
                         </div>
-
                         <div class = "col-3" >
                         <a href="../pages/editar-agendamento-cliente.html"><img class="a1-img divdiv"id = "${idAgendamento}" onclick = "salveId(this.id)"
                         src="../img/edit_square_FILL0_wght400_GRAD0_opsz48.png"></a>
-
                         <a href=""><img
                         class="a2-img" src="../img/delete_FILL0_wght400_GRAD0_opsz48.png" id = "${idAgendamento}" onclick = "deletaItem(this.id)"></a>
-
                         
                         </div>
                         

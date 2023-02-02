@@ -1,7 +1,17 @@
 //referenciar os elementos html
-
+const form = document.getElementById("form-signin")
+const nome = document.getElementById("inputNome")
+const email = document.getElementById("inputEmail")
+const senha = document.getElementById("inputSenha")
+const senha2 = document.getElementById("inputSenha2")
+const divNome = document.getElementById("div-nome")
+const divEmail = document.getElementById("div-email")
+const divSenha = document.getElementById("div-senha")
+const divSenha2 = document.getElementById("div-senha2")
+const divBotao = document.getElementById("botao")
 const data = document.getElementById("data")
 const hora = document.getElementById("hora")
+
 const serv_op = document.getElementById("servico-options")
 const id = localStorage.getItem("id")
 const usuario = localStorage.getItem("nome")
@@ -9,19 +19,19 @@ const usuario = localStorage.getItem("nome")
 divp.innerHTML += `
 <div class="container row text-end"><p>Olá, ${usuario}, <a href="http://127.0.0.1:5500/frontend/index.html"onclick = "sair()">sair</a></p></div> 
 `
-
 document.addEventListener('DOMContentLoaded', () => {
     listarServicos(serv_op)
 })
 
 document.addEventListener('submit', () => {
     console.log("MANDOU?")
-    if(data.value == "" || data.value == null){
-
-    }else if(hora.value == "" || hora.value == null){
-
-    }else{
+    if (data.value === "" || data.value == null) {
+        console.log('Não é permitido algo nulo')
+    } else if (hora.value === "" || hora.value== null) {
+        console.log('Não é permitido algo nulo')
+    } else {
         fazAgendamento(data, hora,serv_op, id);
+        window.location.replace("http://127.0.0.1:5500/frontend/pages/agenda-cliente.html")
     }
     
 })
@@ -49,8 +59,6 @@ async function listarServicos(serv_op){
     }
 
 async function fazAgendamento(data, hora,serv_op, id){
-
-    
     await fetch(`http://localhost:8080/agendamentos`,{
         method:"POST",
         headers: {
@@ -75,8 +83,4 @@ async function fazAgendamento(data, hora,serv_op, id){
         .catch((error) => {
             console.error("Error:", error);
         });
-}
-function sair(){
-    localStorage.clear()
-    
 }
